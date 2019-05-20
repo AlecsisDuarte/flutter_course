@@ -1,2 +1,2 @@
 # flutter-course
-Flutter application created along the Udemy course I was following
+Flutter application created along the [Udemy course](https://www.udemy.com/share/1013o4BUIfeVtbTH4=/) I was following
