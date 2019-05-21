@@ -72,3 +72,6 @@ build/
 
 # Nodejs
 node_modules
+
+# Sensitive Information
+assets/config.json
