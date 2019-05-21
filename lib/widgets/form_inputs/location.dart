@@ -111,7 +111,7 @@ class LocationInputState extends State<LocationInput> {
 
   void _getUserLocation() async {
     final GeoLoc.Location location = GeoLoc.Location();
-    
+
     try {
       final GeoLoc.LocationData currentLocation = await location.getLocation();
       final String address = await _getAddressByCoordinates(Coordinates(
@@ -124,7 +124,7 @@ class LocationInputState extends State<LocationInput> {
         latitude: currentLocation.latitude,
         longitude: currentLocation.longitude,
       );
-      
+
       _setMarker(locData: locData);
     } catch (error) {
       await showDialog(
@@ -136,7 +136,8 @@ class LocationInputState extends State<LocationInput> {
   }
 
   Future<String> _getAddressByCoordinates(Coordinates coordinates) {
-    return Geocoder.google(API_KEY)
+    GlobalConfig config = GlobalConfig();
+    return Geocoder.google(config.config.geocodingKey)
         .findAddressesFromCoordinates(coordinates)
         .then((List<Address> addresses) {
       return addresses.first.addressLine;

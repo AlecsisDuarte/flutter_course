@@ -14,7 +14,7 @@
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
     <application android:name="io.flutter.app.FlutterApplication" android:label="flutter_course" android:icon="@mipmap/ic_launcher">
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDkrA1-SFBiK9BIpWtksX4xjGZ6iQWtgGg"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/geocoding_key"/>
 
         <activity android:name=".MainActivity" android:launchMode="singleTop" android:theme="@style/LaunchTheme" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density" android:hardwareAccelerated="true" android:windowSoftInputMode="adjustResize">
             <!-- This keeps the window background of the activity showing

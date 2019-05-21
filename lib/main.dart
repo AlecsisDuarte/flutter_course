@@ -1,5 +1,10 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_course/shared/adaptive_theme.dart';
+import 'package:flutter_course/shared/global_config.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'package:flutter_course/pages/auth.dart';
@@ -8,6 +13,7 @@ import 'package:flutter_course/scoped_models/main_model.dart';
 import 'package:flutter_course/pages/product.dart';
 import 'package:flutter_course/pages/products.dart';
 import 'package:flutter_course/pages/products_admin.dart';
+import 'models/config.dart';
 import 'widgets/helpers/custom_route.dart';
 
 void main() {
@@ -32,6 +38,11 @@ class _MyAppState extends State<MyApp> {
     _model.userSubject.listen((bool isAuthenticated) {
       setState(() => _isAuthenticated = isAuthenticated);
     });
+    
+    //We load the config.json
+    GlobalConfig config = GlobalConfig();
+    config.loadConfiguration();
+    
     super.initState();
   }
 
