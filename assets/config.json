@@ -1,0 +1,11 @@
+{
+  "geocodingKey": "<Geocoding API KEY HERE>",
+  "authKey": "<KEY used for authentication (can be de same as Geocoding)>",
+  "firebase": {
+    "baseURL": "<URL pointing to the database>",
+    "storeImageFunctionURL": "<URL pointing to the storeImage function in firebase>",
+    "projectId": "<Name of the firebase project>",
+    "fileName": "<Name of the firebase private key>.json",
+    "bucketName": "<Name of the bucket (storage)>"
+  }
+}
