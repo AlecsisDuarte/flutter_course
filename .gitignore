@@ -75,3 +75,5 @@ node_modules
 
 # Sensitive Information
 assets/config.json
+functions/flutter-courser-products.json
+functions/.config.json

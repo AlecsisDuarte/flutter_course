@@ -1,25 +1,28 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:flutter_course/models/location_data.dart';
-import 'package:flutter_course/models/user.dart';
+import 'dart:convert';
+
 import 'package:http_parser/http_parser.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:mime/mime.dart';
 
+import 'package:flutter_course/models/location_data.dart';
+import 'package:flutter_course/models/user.dart';
+import 'package:flutter_course/shared/global_config.dart';
 import 'package:flutter_course/models/product.dart';
 import '../models/auth.dart';
 
 mixin ConnectedProductsModel on Model {
-  final String _baseUrl = 'https://flutter-courser.firebaseio.com/';
+  GlobalConfig globalConfig = GlobalConfig();
+  String get _baseUrl => globalConfig.config.firebaseData.baseURL;
+
   List<Product> _products = [];
   User _authenticatedUser;
   String _selProductId;
   bool _isLoading = false;
-
   bool get isLoading => _isLoading;
 }
 
@@ -49,8 +52,8 @@ mixin ProductsModel on ConnectedProductsModel {
   Future<Map<String, dynamic>> uploadImage(File image,
       {String imagePath}) async {
     final List<String> mimeTypeData = lookupMimeType(image.path).split('/');
-    final Uri uri = Uri.parse(
-        'https://us-central1-flutter-courser.cloudfunctions.net/storeImage');
+    final Uri uri =
+        Uri.parse(globalConfig.config.firebaseData.storeImageFunctionURL);
     final http.MultipartRequest imageUploadRequest =
         http.MultipartRequest('POST', uri);
     final http.MultipartFile file = await http.MultipartFile.fromPath(
@@ -366,7 +369,8 @@ mixin UsersModel on ConnectedProductsModel {
 
   final String _authRoute =
       'https://www.googleapis.com/identitytoolkit/v3/relyingparty/';
-  final String _apiKey = 'AIzaSyAKcCTDcjC7Z_aX1IWxBtKfhXCkxuUu1cI';
+
+  String get _apiKey => globalConfig.config.authKey;
 
   Future<Map<String, dynamic>> authenticate(String email, String password,
       [AuthMode mode = AuthMode.Login]) async {

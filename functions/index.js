@@ -9,14 +9,24 @@ const fs = require('fs');
 const fbAdmin = require('firebase-admin');
 const uuid = require('uuid/v4');
 
+const configPath = path.resolve(path.join(__dirname, ".config.json"));
+const configJson = fs.readFileSync(configPath);
+const config = JSON.parse(configJson);
+// const config = require(__dirname  + '/assets/config.json');
+// const config = require('config_json');
+
 const gcconfig = {
-  projectId: 'flutter-courser',
-  keyFilename: 'flutter-courser-products.json'
+  projectId: config.firebase.projectId,
+  keyFilename: config.firebase.fileName
 };
+// const gcconfig = {
+//   projectId: 'flutter-courser',
+//   keyFilename: 'flutter-courser-products.json'
+// };
 const googleCloud = require('@google-cloud/storage')(gcconfig);
 
 fbAdmin.initializeApp({
-  credential: fbAdmin.credential.cert(require('./flutter-courser-products.json'))
+  credential: fbAdmin.credential.cert(require(`./${config.firebase.fileName}`))
 });
 
 exports.storeImage = functions.https.onRequest((req, res) => {
@@ -56,7 +66,8 @@ exports.storeImage = functions.https.onRequest((req, res) => {
 
     busboy.on('finish', () => {
 
-      const bucket = googleCloud.bucket('flutter-courser.appspot.com')
+      const bucket = googleCloud.bucket(config.firebase.bucketName)
+      // const bucket = googleCloud.bucket('flutter-courser.appspot.com')
       const id = uuid();
       let imagePath = `images/${id}-${uploadData.name}`;
       if (oldImagePath) {
@@ -97,6 +108,7 @@ exports.deleteImage = functions.database.ref('/products/{productId}').onDelete(s
   const imageData = snapshot.val();
   const imagePath = imageData.imagePath;
 
-  const bucket = googleCloud.bucket('flutter-courser.appspot.com');
+  // const bucket = googleCloud.bucket('flutter-courser.appspot.com');
+  const bucket = googleCloud.bucket(config.firebase.bucketName);
   return bucket.file(imagePath).delete();
 });

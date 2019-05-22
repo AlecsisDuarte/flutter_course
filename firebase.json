@@ -1,6 +1,7 @@
 {
   "functions": {
     "predeploy": [
+      "cp assets/config.json functions/.config.json",
       "npm --prefix \"$RESOURCE_DIR\" run lint"
     ],
     "source": "functions"
