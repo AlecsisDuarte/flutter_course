@@ -8,7 +8,7 @@ git clone https://github.com/AlecsisDuarte/flutter_course.git
 
 ```
 And then edit the configuration file at `flutter_course/assets/config.json`
-adding your **Geocoding API KEY** and  **Authentication API KEY** both created at the [Google Developers Console](https://console.developers.google.com/) or you could use the same key for both.
+adding your **Geocoding** and  **Authentication** API KEY both created at the [Google Developers Console](https://console.developers.google.com/) or you could use the same key for both.
 
 You also have to create your Firebase project as shown in [here](https://firebase.google.com/docs/flutter/setup), paste the JSON file at `flutter_course/functions/<your firebase filename>.json`, enable the project storage, functions and update all the firebase information at the `config.json`.
 
