@@ -154,7 +154,7 @@ class LocationInputState extends State<LocationInput> {
             controller: _addressInputController,
             decoration: InputDecoration(
               labelText: 'Address',
-              hintText: 'Mexicali, Baja California',
+              hintText: 'London, England',
               // prefixIcon: Icon(Icons.location_on),
               suffixIcon: IconButton(
                 padding: EdgeInsets.all(0),

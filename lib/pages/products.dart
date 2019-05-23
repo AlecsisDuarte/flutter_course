@@ -48,7 +48,7 @@ class _ProductsPageState extends State<ProductsPage> {
         ),
       ),
       appBar: AppBar(
-        title: Text('Food'),
+        title: Text('Products'),
         actions: <Widget>[
           ScopedModelDescendant<MainModel>(
             builder: (BuildContext context, Widget child, MainModel model) {

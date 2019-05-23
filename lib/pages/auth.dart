@@ -160,7 +160,7 @@ class _AuthPageState extends State<AuthPage> with TickerProviderStateMixin {
         filled: true,
         fillColor: Colors.white70,
         labelText: 'E-mail',
-        hintText: 'test@mail.ts',
+        hintText: 'test@test.test',
       ),
       validator: (String value) {
         if (value.isEmpty) {
