@@ -1,5 +1,5 @@
 name: flutter_course
-description: A new Flutter project.
+description: A products management application made by following a Udemy course.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -33,6 +33,17 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.7.0"
+
+dependency_overrides:
+  image: 2.0.7
+
+flutter_icons:
+  android: true 
+  ios: true
+  image_path: "assets/icon/icon.png"
+  adaptive_icon_background: "#eeeeee"
+  adaptive_icon_foreground: "assets/icon/icon.png"
 
 
 # For information on the generic Dart part of this file, see the
