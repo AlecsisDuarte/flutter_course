@@ -1,4 +1,4 @@
-package com.example.fluttercourse;
+package com.duarte.fluttercourse;
 
 import android.os.Bundle;
 import android.os.BatteryManager;
