@@ -24,3 +24,4 @@ You will need to install the [firebase](https://firebase.google.com/docs/functio
 * This application was made just as a test/practice of the udemy course
 * Here you can find mor information about firebase [functions](https://firebase.google.com/docs/functions/get-started) and [storage](https://firebase.google.com/docs/storage)
 * Currently in order to deploy the firebase functions npm makes a copy of the `config.json` file using the unix command `cp` so it won't work on Windows, you would have to change the command in the `firebase.json` from `cp` to `copy`
+* Icon made by [Freepik](https://www.freepik.com/) from [www.flaticon.com](www.flaticon.com)
