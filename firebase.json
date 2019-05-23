@@ -4,6 +4,9 @@
       "cp assets/config.json functions/.config.json",
       "npm --prefix \"$RESOURCE_DIR\" run lint"
     ],
+    "postdeploy": [
+      "rm functions/.config.json"
+    ],
     "source": "functions"
   }
 }
