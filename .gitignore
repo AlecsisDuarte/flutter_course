@@ -36,6 +36,7 @@ build/
 **/android/gradlew.bat
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
+**/android/app/bin/
 
 # iOS/XCode related
 **/ios/**/*.mode1v3
@@ -77,3 +78,4 @@ node_modules
 assets/config.json
 functions/flutter-courser-products.json
 functions/.config.json
+android/key.properties
